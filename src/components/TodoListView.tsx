@@ -26,7 +26,7 @@ const TodoListView: React.FunctionComponent = () => {
             {
                 context != null && context.State.Items != null && context.State.Items.length > 0 ?
                 context.State.Items.map((item, index) => <TodoItemView key={index} Index={index} Item={item} ItemId={item.id} /> )
-                : <div>"no items"</div>
+                : <div>You should add some TODO's here...</div>
             }
             </List>
         );

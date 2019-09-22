@@ -37,14 +37,6 @@ const TodoItemView: React.FunctionComponent<ITodoItemViewProps> = ({Item, Index,
         }
     };
 
-    const styles = {
-        root: {
-          color: "green",
-          background: "magenta",
-          textDecoration: "line-through"
-        }
-      };
-
     const useStyles = makeStyles((theme: Theme) =>
       createStyles({
         textDone: {

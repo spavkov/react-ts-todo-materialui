@@ -1,0 +1,17 @@
+{
+    "extends": "tslint:recommended",
+    "rules": {
+        "typedef": [false],
+        "typedef-whitespace": [false],
+        "ordered-imports": false,
+        "object-literal-sort-keys": false,
+        "max-line-length": false,
+        "eofline": false,
+        "trailing-comma": false
+    },
+    "jsRules": {
+        "max-line-length": {
+            "options": [120]
+        }
+    }
+}

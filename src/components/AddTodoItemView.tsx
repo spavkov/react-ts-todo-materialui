@@ -6,7 +6,6 @@ import { IStateAndDispatcher } from "./context/GenericContext";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 
-
 const AddTodoItem : React.FunctionComponent = () => {
 
     const [title, setTitle] = useState("");
@@ -41,7 +40,7 @@ const AddTodoItem : React.FunctionComponent = () => {
     };
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setTitle(event.target.value);        
+        setTitle(event.target.value);
       };
 
     const classes = useStyles();
@@ -56,11 +55,8 @@ const AddTodoItem : React.FunctionComponent = () => {
             margin="normal"
             value={title}
         />
-{/*             <input type="text" aria-label="Enter a new todo item"
-            placeholder="E.g. Buy milk on a way home" className="js-todo-input" value={title} onChange={handleChange} /> */}
         </form>
     );
 };
 
 export default AddTodoItem;
-

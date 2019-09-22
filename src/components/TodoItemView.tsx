@@ -11,6 +11,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Checkbox from "@material-ui/core/Checkbox";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
+import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 
 interface ITodoItemViewProps {
     Item: TodoItem;
@@ -36,7 +37,27 @@ const TodoItemView: React.FunctionComponent<ITodoItemViewProps> = ({Item, Index,
         }
     };
 
-    const labelId = `checkbox-list-label-${Item.id}`;    
+    const styles = {
+        root: {
+          color: "green",
+          background: "magenta",
+          textDecoration: "line-through"
+        }
+      };
+
+    const useStyles = makeStyles((theme: Theme) =>
+      createStyles({
+        textDone: {
+          textDecoration: "line-through",
+        },
+        textNotDone: {
+        }
+      }),
+      );
+
+    const classes = useStyles();
+
+    const labelId = `checkbox-list-label-${Item.id}`;
     return (
 
         <ListItem
@@ -54,7 +75,7 @@ const TodoItemView: React.FunctionComponent<ITodoItemViewProps> = ({Item, Index,
             onClick={() => onDoneChange(Item.id)}
           />
         </ListItemIcon>
-        <ListItemText id={labelId} primary={Item.title} />
+        <ListItemText id={labelId} className={Item.done ? classes.textDone : classes.textNotDone } primary={Item.title} />
         <ListItemSecondaryAction>
           <IconButton edge="end" aria-label="comments" onClick={() => deleteItem(Item.id)}>
             <DeleteIcon />

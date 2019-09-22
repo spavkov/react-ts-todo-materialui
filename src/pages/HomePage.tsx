@@ -9,19 +9,19 @@ import AboutPage from "./AboutPage";
 
 function a11yProps(index: any) {
     return {
-      id: `simple-tab-${index}`,
+      "id": `simple-tab-${index}`,
       "aria-controls": `simple-tabpanel-${index}`,
     };
   }
 
-  const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
     root: {
       flexGrow: 1,
       backgroundColor: theme.palette.background.paper,
     },
   }));
 
-  export default function HomePage() {
+export default function HomePage() {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
 

@@ -43,6 +43,7 @@ export default function HomePage() {
         <TabPanel value={value} index={1}>
           <AboutPage />
         </TabPanel>
+        
       </div>
     );
   }

@@ -3,18 +3,32 @@ import { TodoItemsDispatchAction, TodoItemsContext } from "./context/TodoItemsCo
 import { ITodoItemsContext } from "./context/ITodoItemsContext";
 import TodoItemView from "./TodoItemView";
 import { IStateAndDispatcher } from "./context/GenericContext";
+import List from "@material-ui/core/List";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
 const TodoListView: React.FunctionComponent = () => {
 
-    const context : IStateAndDispatcher<ITodoItemsContext, TodoItemsDispatchAction> | null = useContext(TodoItemsContext);
+    const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+      root: {
+        width: "100%",
+        maxWidth: 360,
+        backgroundColor: theme.palette.background.paper
+      }
+    })
+  );
 
+    const context : IStateAndDispatcher<ITodoItemsContext, TodoItemsDispatchAction> | null = useContext(TodoItemsContext);
+    const classes = useStyles();
     return (
-        <div>
+
+            <List className={classes.root}>
             {
-            context != null && context.State.Items != null && context.State.Items.length > 0 ?
-            context.State.Items.map((item, index) => <TodoItemView key={index} Index={index} Item={item} ItemId={item.id} /> ) : <div>"no items"</div>
+                context != null && context.State.Items != null && context.State.Items.length > 0 ?
+                context.State.Items.map((item, index) => <TodoItemView key={index} Index={index} Item={item} ItemId={item.id} /> )
+                : <div>"no items"</div>
             }
-        </div>
+            </List>
         );
 };
 
